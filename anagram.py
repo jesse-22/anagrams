@@ -59,7 +59,6 @@ def main():
     word = input("Enter a phrase separated by a space")
     phrase_input = word.split()
     a = Anagram([phrase_input])
-    # a.check_phrase()
     a.get_list_anagrams(word_list, phrase_input)
 
 
