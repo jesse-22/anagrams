@@ -29,14 +29,38 @@ class Anagram:
                     if w == word_reverse:
                         print(w)
             else:
-                print("There word is not an anagram")
+                print("No anagram can be made")
+
+    @staticmethod
+    def get_list_anagrams(wordlist, phrase):
+        word_list = []
+        phrase_len = len_phrase = len(phrase)
+        chosen_words = []
+        counter = 0
+        for word in wordlist:
+            for word_in_phrase in phrase:
+                if sorted(word_in_phrase) == sorted(word):
+                    word_list.append(word)
+        print(','.join(word_list))
+
+        while counter in range(phrase_len):
+            chosen_word = input("Which word would you like to select?")
+            chosen_words.append(chosen_word)
+            word_list.remove(chosen_word)
+            counter += 1
+            if counter < phrase_len:
+                print(' '.join(word_list))
+        print(' '.join(chosen_words))
 
 
 def main():
-    readfile(WORDSLIST)
-    word = input("Enter word")
-    a = Anagram(word)
-    a.check_phrase()
+    word_list = readfile(WORDSLIST)
+
+    word = input("Enter a phrase separated by a space")
+    phrase_input = word.split()
+    a = Anagram([phrase_input])
+    # a.check_phrase()
+    a.get_list_anagrams(word_list, phrase_input)
 
 
 if __name__ == "__main__":
