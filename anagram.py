@@ -28,7 +28,8 @@ class Anagram:
                 for w in wordslist:
                     if w == word_reverse:
                         print(w)
-                    return w
+            else:
+                print("There word is not an anagram")
 
 
 def main():
